@@ -1,16 +1,19 @@
+
 const btn_bg_color = document.querySelector(".button_box #bg_color");
-const canvas = document.querySelector("canvas");
+const canvas = document.querySelector('canvas');
+
 let ctx = canvas.getContext('2d');
 let box_drawn = 0;
 let box_position_x = 0;
 let box_position_y = 650;
 let timer_start = new Date();
 let acc=0;
+let box_color='black'
 
 // box 만들기
 function draw_box(){        
     if(!box_drawn){    
-        ctx.fillStyle = 'black';            
+        ctx.fillStyle = box_color;            
         ctx.fillRect(box_position_x,box_position_y,50,50);
         box_drawn = 1;        
 
@@ -26,8 +29,6 @@ function draw_box_move(x,y){
     ctx.clearRect(box_position_x,box_position_y,50,50);
       
     // 나가리시 border 밖으로 벗어나지 않게 해주는 판정
-    console.log(x,y);
-
     if (x+50 > 700){
         x = 650;
     }
@@ -43,15 +44,27 @@ function draw_box_move(x,y){
 
 
     // 새로운 위치에 box 생성   
-    ctx.fillStyle = 'black'; 
+    ctx.fillStyle = box_color; 
     ctx.fillRect(x,y,50,50);
     
 
     // 위치설정
     box_position_x = x;
     box_position_y = y;    
+}
 
 
+// Box Color 변경
+function box_color_chg(event){    
+    box_color = event.target.style.backgroundColor;
+    
+
+    if(box_color!=''){
+        console.log('hello');
+        ctx.clearRect(box_position_x,box_position_y,50,50);        
+        ctx.fillStyle = box_color;
+        ctx.fillRect(box_position_x,box_position_y,50,50);                        
+    }
 }
 
 
@@ -84,35 +97,26 @@ function keydown(event){
         
 }
 
-// RIGHT
-function box_move(){
-    
-
-}
-
-
-
-// line 그리기
-function line(){        
-    ctx.beginPath();
-    ctx.moveTo(0,50);    
-    ctx.lineTo(75,50);
-    ctx.lineTo(75,70);
-    ctx.stroke();    
-}
 
 function init(){     
 }
 
 
+// 이벤트 모음
 
+// 버튼눌렀을때 action
 btn_bg_color.addEventListener('click',draw_box);
 
+// 키 눌렀을때 box_move
 document.addEventListener('keydown', keydown);
 // 키 뗐을때 가속도시간 초기화
 document.addEventListener('keyup', ()=>{
     timer_start = new Date();
 })
+
+// 버튼 클릭시 box color 변경
+document.querySelector(".color_selector").addEventListener("click", box_color_chg);
+
 
 
 init();

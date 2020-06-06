@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html5 lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-game</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css"/>    
     <script src="./main.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
-        <h1>심심해서 만들어본 박스무브</h1>
+        <h1 id="title">심심해서 만들어본 박스무브</h1>
         <canvas id="canvas" width="700" height="700">        
         </canvas>
         <div class="button_box">
-            <input type="button" id="bg_color" value="Toggle Box"/>
+            <input type="button" id="bg_color" value="Box show/hide"/>
+        </div>
+        <div class="color_selector">
+            <div class="color1" style="background-color: black;"></div>
+            <div class="color2" style="background-color: red;"></div>
+            <div class="color3" style="background-color: green;"></div>
+            <div class="color4" style="background-color: blue;"></div>
+            <div class="color5" style="background-color: gray;"></div>
         </div>
         <ol>
             <li>벽에 닿으면 못움직이게</li>
             <li>가속도 개념 적용</li>
             <li>버튼 클릭시 box 보이기/숨기기</li>
-        </ol>
-        <h2>추가예정: box색 변경!</h2>
-    </div>    
+            <li>색깔 변경 가능</li>
+        </ol>        
+    </div>        
 </body>
-</html>
+</html5>
