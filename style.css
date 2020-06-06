@@ -19,3 +19,7 @@ canvas{
     text-align: start;    
     font-size: 20px;
 }
+
+.wrapper h2{
+    font-size: 15px;    
+}
