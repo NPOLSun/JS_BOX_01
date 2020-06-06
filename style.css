@@ -25,13 +25,21 @@ input#bg_color{
     flex-direction: row;
 }
 
-.color_selector div{
+.color_selector .color{
     height: 50px;
     width: 50px;    
     margin: 10px;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0,0,250,0.5);
 }
+.color_selector>div.selected{
+    border: 1px dashed currentColor;
+}
+
+.color_selector .color:hover{
+    transform: translate(3px,3px);
+}
+
 
 .wrapper ol{
     text-align: start;    

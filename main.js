@@ -58,12 +58,16 @@ function draw_box_move(x,y){
 function box_color_chg(event){    
     box_color = event.target.style.backgroundColor;
     
-
-    if(box_color!=''){
-        console.log('hello');
+    if(box_color!=''){        
         ctx.clearRect(box_position_x,box_position_y,50,50);        
         ctx.fillStyle = box_color;
-        ctx.fillRect(box_position_x,box_position_y,50,50);                        
+        ctx.fillRect(box_position_x,box_position_y,50,50);       
+        // 기존 selected 다 없애기
+        let color_selectors = event.target.parentElement.parentElement.children;
+        for (let i=0;i<Array.from(color_selectors).length;i++){
+            event.target.parentElement.parentElement.children[i].classList.remove("selected");
+        }
+        event.target.parentElement.classList.toggle("selected");                                 
     }
 }
 
@@ -99,6 +103,7 @@ function keydown(event){
 
 
 function init(){     
+    draw_box();
 }
 
 

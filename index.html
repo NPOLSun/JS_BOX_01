@@ -16,13 +16,24 @@
             <input type="button" id="bg_color" value="Box show/hide"/>
         </div>
         <div class="color_selector">
-            <div class="color1" style="background-color: black;"></div>
-            <div class="color2" style="background-color: red;"></div>
-            <div class="color3" style="background-color: green;"></div>
-            <div class="color4" style="background-color: blue;"></div>
-            <div class="color5" style="background-color: gray;"></div>
+            <div class="color_container1 selected">
+                <div class="color selected" id="color1" style="background-color: black;"></div>
+            </div>
+            <div class="color_container2">
+                <div class="color" id="color2" style="background-color: red;"></div>  
+            </div>
+            <div class="color_container3">
+                <div class="color" id="color3" style="background-color: green;"></div>
+            </div>
+            <div class="color_container4">
+                <div class="color" id="color4" style="background-color: blue;"></div> 
+            </div>
+            <div class="color_container5">
+                <div class="color" id="color5" style="background-color: gray;"></div> 
+            </div>
         </div>
         <ol>
+            <li>화살표(←→↑↓)로 박스 이동</li>
             <li>벽에 닿으면 못움직이게</li>
             <li>가속도 개념 적용</li>
             <li>버튼 클릭시 box 보이기/숨기기</li>
